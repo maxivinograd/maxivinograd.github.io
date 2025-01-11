@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Max Kranz Pages - Search and create articles</title>
+    <link href="pages.png" rel="shortcut icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
@@ -138,15 +139,13 @@
     </footer>
 
     <script>
-        // Application State
         const app = document.getElementById('app');
         const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-        let userArticleId = null; // Track the user's editable article
+        let userArticleId = null;
 
-        // Render Functions
         function renderHomePage() {
             app.innerHTML = `
-                <h2>Welcome to Telegra.ph Clone</h2>
+                <h2>Welcome to Max Kranz Pages</h2>
                 <input class="search-bar" id="search" type="text" placeholder="Search articles..." oninput="searchArticles()">
                 <button class="button" onclick="renderEditor()">➕ Write a New Article</button>
                 <h3>Published Articles:</h3>
