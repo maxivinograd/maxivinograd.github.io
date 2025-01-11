@@ -3,459 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Kranz Publisher</title>
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-     
-        ym(98959916, "init", {
-             clickmap:true,
-             trackLinks:true,
-             accurateTrackBounce:true,
-             webvisor:true
-        });
-     </script>
-     <noscript><div><img src="https://mc.yandex.ru/watch/98959916" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-     <!-- /Yandex.Metrika counter -->
-    <link rel="shortcut icon" href="logop.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Max Kranz Pages - Search and create articles</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
         body {
-            background-color: #303030;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f9, #dbeafe);
+            color: #333;
+            transition: background 0.3s ease;
+            background: #303030;
         }
 
         header {
-            width: 100%;
-            padding: 15px 20px;
-            background-color: #4a90e2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: linear-gradient(90deg, #007acc, deepskyblue);
+            color: white;
+            padding: 20px;
+            text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .logo {
-            margin-right: auto;
-        }
-
-        .search-container {
-            margin: 0 10px;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .burger-menu {
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .burger-menu div {
-            width: 30px;
-            height: 4px;
-            background-color: #fff;
-            border-radius: 2px;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 70%;
-            height: 100%;
-            background-color: #4a90e2;
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        nav.active {
-            transform: translateX(-100%);
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            max-width: 100%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        nav .close-menu {
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #fff;
-        }
-
-        .intro {
-            margin: 20px 0;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        #projects-grid {
-    display: grid;
-    gap: 20px; /* Расстояние между квадратиками */
-    padding: 20px; /* Внутренний отступ */
-    width: 100%;
-    max-width: 1200px;
-}
-
-        .project {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, deepskyblue, #007acc);
+            color: white;
             text-decoration: none;
-            width: 250px;
-        }
-        @media (max-width: 768px) {
-    #projects-grid {
-        grid-template-columns: repeat(1, 1fr); /* 1 колонка для телефонов */
-        justify-content: center; /* Центрирует элементы */
-    }
-
-    .project {
-        max-width: none; /* Убирает ограничение ширины */
-        width: 100%; /* Элемент занимает всю ширину родителя */
-    }
-}
-
-        .project:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .project img {
-            width: 100%;
-            height: 90px;
-            object-fit: cover;
-        }
-
-        .project-title {
-            padding: 10px;
-            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
             font-weight: 600;
-            color: #333;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: linear-gradient(90deg, #007acc, deepskyblue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-link {
+            display: block;
+            margin: 10px 0;
+            color: #007acc;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .article-link:hover {
+            color: deepskyblue;
+            padding-left: 5px;
+        }
+
+        textarea, input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus, input:focus {
+            border-color: deepskyblue;
+            outline: none;
+            box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .edit-delete-buttons {
+            margin-top: 20px;
+        }
+
+        .edit-delete-buttons .button {
+            margin-right: 10px;
         }
 
         footer {
+            margin-top: 30px;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            width: 100%;
+            font-size: 14px;
+            color: #555;
         }
 
-        .dropdown-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 40px auto;
-        }
-
-        .dropdown {
-            background-color: #4a90e2;
-            color: #fff;
-            padding: 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: background 0.3s ease;
-        }
-
-        .dropdown:hover {
-            background-color: #357ab7;
-        }
-
-        .dropdown-content {
-            display: none;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 5px 0;
-            color: #333;
+        footer a {
+            color: deepskyblue;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 600;
         }
 
-        .dropdown-content a:hover {
-            color: #4a90e2;
+        footer a:hover {
+            text-decoration: underline;
         }
-
-        @media (max-width: 768px) {
-            .burger-menu {
-                display: flex;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-
-            nav {
-                width: 90%;
-            }
+        .img{
+            height: 100px;
         }
-        footer a{
-            margin: 7px;
-        }
-        .intro {
-            margin: 20px 0;
-            padding: 0 20px;
-            text-align: center;
-            font-size: 20px;
-            max-width: 800px;
-            line-height: 1.5;
-        }
-        #projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .project {
-            background-color: DeepSkyBlue;
-            padding: 30px;
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 18px;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        /* Эффект появления текста */
-
-
-        .project:hover .project-description,
-        .project.active .project-description {
-            bottom: 0;
-        }
-        footer a{
-            margin: 5px;
-        }
-
-        .project a {
-            color: #f8f8f8;
-            text-decoration: none;
-            z-index: 1;
-        }
-
-        @media (max-width: 768px) {
-            .project-description {
-                font-size: 14px;
-            }
-
-            .project {
-                width: 100%;
-            }
-
-        }
-        body{
-            color: #f8f8f8;
-            background-color: #303030;
-        }
-        #projects-grid {
-    display: grid;
-    gap: 20px; /* Расстояние между квадратиками */
-    padding: 20px; /* Внутренний отступ */
-    width: 100%;
-    max-width: 1200px;
-}
-
-.project {
-    background-color: #fff; /* Белый фон */
-    border-radius: 8px; /* Закругленные углы */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
-    text-align: center;
-    overflow: hidden; /* Убираем выход за границы */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Эффект при наведении */
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Вертикальное расположение */
-    align-items: center;
-    text-decoration: none;
-    height: 200px; /* Фиксированная высота */
-}
-
-
-
-.project-title {
-    padding: 10px; /* Отступы */
-    font-size: 1rem; /* Размер текста */
-    font-weight: 600; /* Полужирный текст */
-    color: #333; /* Цвет текста */
-}
-#logop{
-    height: 60px;
-}
-
-.project:hover {
-    transform: translateY(-10px); /* Поднятие квадрата при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Увеличение тени */
-}
-
-
     </style>
 </head>
 <body>
-<header>
-    <a href="https://publisher.maxkranz.me" class="logo">
-        <img src="logop.png" id="logop">
-        
+    <header>
+        <a href="https://pages.maxkranz.me/">
+        <img class="img" src="logopages.png"> <br> 
     </a>
-    <div class="search-container">
-        <input type="text" id="search" placeholder="Search apps...">
-    </div>
-    <div class="burger-menu" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <nav id="navMenu">
-        <span class="close-menu" onclick="toggleMenu()">Х</span>
-        <a href="https://maxkranz.github.io/publisher/about/">About</a>
-        <a href="https://telegra.ph/Post-Your-AppGame-at-MK-Publisher-12-17">Post Your Project</a>
-        <a href="https://maxkranz.github.io/publisher/app/">App</a>
-        <a href="https://maxkranz.github.io/publisher/game/">Games</a>
-        <a href="https://t.me/maxkranzofficial">Telegram</a>
-    </nav>
-</header>
+    </header>
+    <div id="app" class="container">
+            </div>
+    <footer>
+        <p>Created by <a href="https://maxkranz.me" target="_blank">Max Kranz</a></p>
+    </footer>
 
-<div class="intro">
-    Welcome to MK Publisher! Discover amazing apps and games.
-</div>
+    <script>
+        // Application State
+        const app = document.getElementById('app');
+        const articles = JSON.parse(localStorage.getItem('articles') || '[]');
+        let userArticleId = null; // Track the user's editable article
 
-<div id="projects-grid">
-    <a href="https://maxkranz.github.io/amanda" class="project" data-title="Amanda">
-        <img src="amanda.png" alt="Example Project">
-        <div class="project-title">Amanda</div>
-    </a>
+        // Render Functions
+        function renderHomePage() {
+            app.innerHTML = `
+                <h2>Welcome to Telegra.ph Clone</h2>
+                <input class="search-bar" id="search" type="text" placeholder="Search articles..." oninput="searchArticles()">
+                <button class="button" onclick="renderEditor()">➕ Write a New Article</button>
+                <h3>Published Articles:</h3>
+                <div id="articles-list">
+                    ${articles.map(article => `<a class="article-link" href="#/app/${article.id}">${article.title}</a>`).join('')}
+                </div>
+            `;
+        }
 
-    <a href="https://maxkranz.github.io/apps/todoapp" class="project"data-title="To Do">
-        <img src="todo.png" alt="Example Project">
-        <div class="project-title">To Do</div>
-    </a>
-    <a href="https://maxkranz.github.io/apps/noteapp" class="project"data-title="NoteApp">
-        <img src="noteapp.png" alt="Example Project">
-        <div class="project-title">NoteApp</div>
-    </a>
-    <a href="https://maxkranz.github.io/apps/timer" class="project"data-title="Timer">
-        <img src="timer.png" alt="Example Project">
-        <div class="project-title">Timer</div>
-    </a>
-    <a href="https://maxkranz.github.io/apps/quotegenerator" class="project"data-title="Quotes Generator">
-        <img src="quotes.png" alt="Example Project">
-        <div class="project-title">Quotes Generator</div>
-    </a>
-    <a href="https://maxkranz.github.io/apps/calculator" class="project"data-title="Calculator">
-        <img src="calculate.png" alt="Example Project">
-        <div class="project-title">Calculator</div>
-    </a>
+        function renderEditor(article = null) {
+            userArticleId = article ? article.id : null;
+            app.innerHTML = `
+                <h2>${article ? 'Edit Article' : 'Write a New Article'}</h2>
+                <input id="article-title" type="text" placeholder="Article Title" value="${article ? article.title : ''}">
+                <textarea id="article-content" rows="10" placeholder="Write your article here...">${article ? article.content : ''}</textarea>
+                <button class="button" onclick="${article ? 'updateArticle()' : 'publishArticle()'}">${article ? '💾 Save Changes' : '📤 Publish'}</button>
+                <button class="button" style="background-color: #ccc;" onclick="renderHomePage()">❌ Cancel</button>
+            `;
+        }
 
+        function renderArticlePage(articleId) {
+            const article = articles.find(a => a.id === articleId);
+            if (!article) {
+                app.innerHTML = `<h2>Article Not Found</h2><button class="button" onclick="renderHomePage()">Go Back</button>`;
+                return;
+            }
+            app.innerHTML = `
+                <h1>${article.title}</h1>
+                <p>${article.content.replace(/\n/g, '<br>')}</p>
+                <div class="edit-delete-buttons">
+                    <button class="button" onclick="renderEditor(articles.find(a => a.id === '${articleId}'))">✏️ Edit</button>
+                    <button class="button" style="background-color: red;" onclick="deleteArticle('${articleId}')">🗑️ Delete</button>
+                </div>
+                <button class="button" onclick="renderHomePage()">⬅️ Go Back</button>
+            `;
+        }
 
+        // Actions
+        function publishArticle() {
+            const title = document.getElementById('article-title').value.trim();
+            const content = document.getElementById('article-content').value.trim();
+            if (!title || !content) {
+                alert('Please fill in both the title and content!');
+                return;
+            }
+            const newArticle = {
+                id: Date.now().toString(), // Simple unique ID
+                title,
+                content
+            };
+            articles.push(newArticle);
+            localStorage.setItem('articles', JSON.stringify(articles));
+            renderHomePage();
+        }
 
+        function updateArticle() {
+            const title = document.getElementById('article-title').value.trim();
+            const content = document.getElementById('article-content').value.trim();
+            if (!title || !content) {
+                alert('Please fill in both the title and content!');
+                return;
+            }
+            const articleIndex = articles.findIndex(a => a.id === userArticleId);
+            if (articleIndex !== -1) {
+                articles[articleIndex].title = title;
+                articles[articleIndex].content = content;
+                localStorage.setItem('articles', JSON.stringify(articles));
+                renderHomePage();
+            }
+        }
 
-</div>
+        function deleteArticle(articleId) {
+            const confirmDelete = confirm('Are you sure you want to delete this article?');
+            if (confirmDelete) {
+                const articleIndex = articles.findIndex(a => a.id === articleId);
+                if (articleIndex !== -1) {
+                    articles.splice(articleIndex, 1);
+                    localStorage.setItem('articles', JSON.stringify(articles));
+                    renderHomePage();
+                }
+            }
+        }
 
-<div class="dropdown-container">
-    <div class="dropdown" onclick="toggleDropdown('apps')">Trending</div>
-    <div class="dropdown-content" id="apps">
-        <a href="#">To Do App</a>
-        <a href="#">Amanda</a>
-    </div>
-</div>
-    </div>
+        function searchArticles() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filteredArticles = articles.filter(article => article.title.toLowerCase().includes(query));
+            document.getElementById('articles-list').innerHTML = filteredArticles
+                .map(article => `<a class="article-link" href="#/app/${article.id}">${article.title}</a>`).join('');
+        }
 
-<footer>
-    © Max Kranz Inc. All rights reserved. 
-</footer>
+        // Router
+        function handleRouting() {
+            const hash = window.location.hash;
+            if (hash.startsWith('#/app/')) {
+                const articleId = hash.replace('#/app/', '');
+                renderArticlePage(articleId);
+            } else {
+                renderHomePage();
+            }
+        }
 
-
-
-<script>
-    
-    function toggleMenu() {
-        const navMenu = document.getElementById('navMenu');
-        navMenu.classList.toggle('active');
-    }
-
-    function toggleDropdown(id) {
-        const dropdown = document.getElementById(id);
-        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-    }
-
-    const searchInput = document.getElementById('search');
-    const projectsGrid = document.getElementById('projects-grid');
-    const projects = projectsGrid.getElementsByClassName('project');
-
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        Array.from(projects).forEach(project => {
-            const title = project.getAttribute('data-title').toLowerCase();
-            project.style.display = title.includes(query) ? 'block' : 'none';
-        });
-    });
-
-</script>
+        window.addEventListener('hashchange', handleRouting);
+        window.addEventListener('load', handleRouting);
+    </script>
 </body>
 </html>
