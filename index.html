@@ -3,252 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Kranz Pages - Search and create articles</title>
-    <link href="pages.png" rel="shortcut icon">
+    <title>Max Kranz Avatar</title>
+    <link href="ico.png" rel="shortcut-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f4f4f9, #dbeafe);
-            color: #333;
-            transition: background 0.3s ease;
-            background: #303030;
+            background: #121212;
+            color: white;
         }
 
         header {
-            background: linear-gradient(90deg, #007acc, deepskyblue);
-            color: white;
-            padding: 20px;
+            background-color: #121212;
+            color: deepskyblue;
+            padding: 50px 20px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #131313;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: linear-gradient(90deg, deepskyblue, #007acc);
-            color: white;
+        nav a {
             text-decoration: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .button:hover {
-            background: linear-gradient(90deg, #007acc, deepskyblue);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .article-link {
-            display: block;
-            margin: 10px 0;
-            color: #007acc;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .article-link:hover {
             color: deepskyblue;
-            padding-left: 5px;
+            font-weight: bold;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
         }
 
-        textarea, input {
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease;
+        nav a:hover {
+            color: #0095d9;
         }
 
-        textarea:focus, input:focus {
-            border-color: deepskyblue;
-            outline: none;
-            box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+            color: white;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.6);
         }
 
-        .search-bar {
+        .hero h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
 
-        .edit-delete-buttons {
-            margin-top: 20px;
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
-        .edit-delete-buttons .button {
-            margin-right: 10px;
+        .hero button {
+            background-color: deepskyblue;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #0095d9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .feature {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            flex: 1 1 calc(33% - 40px);
+            min-width: 250px;
+        }
+
+        .feature img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: deepskyblue;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #bbb;
         }
 
         footer {
-            margin-top: 30px;
             text-align: center;
-            font-size: 14px;
-            color: #555;
+            background-color: #1e1e1e;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
         }
 
         footer a {
             color: deepskyblue;
             text-decoration: none;
-            font-weight: 600;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
-        .img{
-            height: 100px;
+
+        .avatar-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .avatar {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar img {
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <header>
-        <a href="https://pages.maxkranz.me/">
-        <img class="img" src="logopages.png"> <br> 
-    </a>
+        <h1>Max Kranz Avatar</h1>
+        <p>Create your custom avatar</p>
     </header>
-    <div id="app" class="container">
+
+    <nav>
+        <a href="https://avatar.maxkranz.me/about/">About</a>
+        <a href="https://avatar.maxkranz.me/pricing/">Pricing</a>
+        <a href="https://avatar.maxkranz.me/gallery/">Gallery</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Order now </h2>
+        <p>Get a personalized avatar that reflects your unique style and personality.</p>
+        <button onclick="window.location.href('https://avatar.maxkranz.me/pricing/')">Get Your Avatar Now</button>
+    </section>
+
+    <div class="container">
+        <section class="features">
+            <div class="feature">
+                <img src="https://via.placeholder.com/100" alt="Feature 1">
+                <h3>Cheap</h3>
+                <p>Avatars costs a little bit of Telegram stars</p>
             </div>
+            <div class="feature">
+                <img src="https://via.placeholder.com/100" alt="Feature 2">
+                <h3>Reference</h3>
+                <p>You can send referece, and we will make magic with it</p>
+            </div>
+            <div class="feature">
+                <img src="https://via.placeholder.com/100" alt="Feature 3">
+                <h3>Personality</h3>
+                <p>Your avatar will be unique</p>
+            </div>
+        </section>
+
+    
+    </div>
+
     <footer>
-        <p>Created by <a href="https://maxkranz.me" target="_blank">Max Kranz</a></p>
+        <p>Created by <a href="https://maxkranz.github.io">Max Kranz</a></p>
     </footer>
-
-    <script>
-        const app = document.getElementById('app');
-        const articles = JSON.parse(localStorage.getItem('articles') || '[]');
-        let userArticleId = null;
-
-        function renderHomePage() {
-            app.innerHTML = `
-                <h2>Welcome to Max Kranz Pages</h2>
-                <input class="search-bar" id="search" type="text" placeholder="Search articles..." oninput="searchArticles()">
-                <button class="button" onclick="renderEditor()">➕ Write a New Article</button>
-                <h3>Published Articles:</h3>
-                <div id="articles-list">
-                    ${articles.map(article => `<a class="article-link" href="#/app/${article.id}">${article.title}</a>`).join('')}
-                </div>
-            `;
-        }
-
-        function renderEditor(article = null) {
-            userArticleId = article ? article.id : null;
-            app.innerHTML = `
-                <h2>${article ? 'Edit Article' : 'Write a New Article'}</h2>
-                <input id="article-title" type="text" placeholder="Article Title" value="${article ? article.title : ''}">
-                <textarea id="article-content" rows="10" placeholder="Write your article here...">${article ? article.content : ''}</textarea>
-                <button class="button" onclick="${article ? 'updateArticle()' : 'publishArticle()'}">${article ? '💾 Save Changes' : '📤 Publish'}</button>
-                <button class="button" style="background-color: #ccc;" onclick="renderHomePage()">❌ Cancel</button>
-            `;
-        }
-
-        function renderArticlePage(articleId) {
-            const article = articles.find(a => a.id === articleId);
-            if (!article) {
-                app.innerHTML = `<h2>Article Not Found</h2><button class="button" onclick="renderHomePage()">Go Back</button>`;
-                return;
-            }
-            app.innerHTML = `
-                <h1>${article.title}</h1>
-                <p>${article.content.replace(/\n/g, '<br>')}</p>
-                <div class="edit-delete-buttons">
-                    <button class="button" onclick="renderEditor(articles.find(a => a.id === '${articleId}'))">✏️ Edit</button>
-                    <button class="button" style="background-color: red;" onclick="deleteArticle('${articleId}')">🗑️ Delete</button>
-                </div>
-                <button class="button" onclick="renderHomePage()">⬅️ Go Back</button>
-            `;
-        }
-
-        // Actions
-        function publishArticle() {
-            const title = document.getElementById('article-title').value.trim();
-            const content = document.getElementById('article-content').value.trim();
-            if (!title || !content) {
-                alert('Please fill in both the title and content!');
-                return;
-            }
-            const newArticle = {
-                id: Date.now().toString(), // Simple unique ID
-                title,
-                content
-            };
-            articles.push(newArticle);
-            localStorage.setItem('articles', JSON.stringify(articles));
-            renderHomePage();
-        }
-
-        function updateArticle() {
-            const title = document.getElementById('article-title').value.trim();
-            const content = document.getElementById('article-content').value.trim();
-            if (!title || !content) {
-                alert('Please fill in both the title and content!');
-                return;
-            }
-            const articleIndex = articles.findIndex(a => a.id === userArticleId);
-            if (articleIndex !== -1) {
-                articles[articleIndex].title = title;
-                articles[articleIndex].content = content;
-                localStorage.setItem('articles', JSON.stringify(articles));
-                renderHomePage();
-            }
-        }
-
-        function deleteArticle(articleId) {
-            const confirmDelete = confirm('Are you sure you want to delete this article?');
-            if (confirmDelete) {
-                const articleIndex = articles.findIndex(a => a.id === articleId);
-                if (articleIndex !== -1) {
-                    articles.splice(articleIndex, 1);
-                    localStorage.setItem('articles', JSON.stringify(articles));
-                    renderHomePage();
-                }
-            }
-        }
-
-        function searchArticles() {
-            const query = document.getElementById('search').value.toLowerCase();
-            const filteredArticles = articles.filter(article => article.title.toLowerCase().includes(query));
-            document.getElementById('articles-list').innerHTML = filteredArticles
-                .map(article => `<a class="article-link" href="#/app/${article.id}">${article.title}</a>`).join('');
-        }
-
-        // Router
-        function handleRouting() {
-            const hash = window.location.hash;
-            if (hash.startsWith('#/app/')) {
-                const articleId = hash.replace('#/app/', '');
-                renderArticlePage(articleId);
-            } else {
-                renderHomePage();
-            }
-        }
-
-        window.addEventListener('hashchange', handleRouting);
-        window.addEventListener('load', handleRouting);
-    </script>
 </body>
 </html>
