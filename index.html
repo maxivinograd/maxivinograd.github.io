@@ -147,8 +147,8 @@
         }
 
         .avatar-gallery {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             justify-content: center;
             margin-top: 20px;
@@ -184,6 +184,24 @@
         <p>Get a personalized avatar that reflects your unique style and personality.</p>
         <button  onclick="window.open('https://avatar.maxkranz.me/pricing/', '_blank')"">Get Your Avatar Now</button>
     </section>
+<div class="container">
+    <h2 style="text-align: center; color: deepskyblue;">Examples of Our Work</h2>
+    <section class="avatar-gallery">
+        <div class="avatar">
+            <img src="1.jpg" alt="Avatar Example 1">
+            <p style="text-align: center; margin-top: 10px;">Computer on the desk</p>
+        </div>
+        <div class="avatar">
+            <img src="ku.jpg" alt="Avatar Example 2">
+            <p style="text-align: center; margin-top: 10px;">Kuromi anime style</p>
+        </div>
+        <div class="avatar">
+            <img src="prog.jpg" alt="Avatar Example 3">
+            <p style="text-align: center; margin-top: 10px;">Dark-themed programmer</p>
+        </div>
+
+    </section>
+</div>
 
     <div class="container">
         <section class="features">
