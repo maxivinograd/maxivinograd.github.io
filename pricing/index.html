@@ -87,6 +87,26 @@
             text-align: center;
             flex: 1 1 calc(33% - 40px);
             min-width: 250px;
+            transition: transform 0.3s;
+        }
+
+        .plan.highlight {
+            border: 3px solid gold;
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(255, 215, 0, 0.6);
+        }
+
+        .badge {
+            position: absolute;
+            top: -10px;
+            right: -0px;
+            background: gold;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         .plan h3 {
@@ -139,6 +159,69 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .pricing h2 {
+        font-size: 2rem;
+    }
+
+    .pricing p {
+        font-size: 1rem;
+    }
+
+    .plan {
+        flex: 1 1 100%; /* План занимает всю ширину */
+        padding: 15px;
+        margin: 10px 0;
+        width: auto; /* Убираем жесткую ширину */
+    }
+
+    .plan h3 {
+        font-size: 1.5rem;
+    }
+
+    .plan .price {
+        font-size: 1.5rem;
+    }
+
+    .plan p {
+        font-size: 0.9rem;
+    }
+
+    .plan button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+        margin: 0 10px;
+    }
+
+    /* Изменение размера .highlight на телефонах */
+    .plan.highlight {
+        transform: scale(1.02); /* Уменьшаем масштаб */
+        padding: 10px; /* Уменьшаем внутренние отступы */
+        border-width: 2px; /* Уменьшаем ширину рамки */
+    }
+
+    .plan.highlight .price {
+        font-size: 1.4rem; /* Уменьшаем размер цены */
+    }
+
+    .plan.highlight h3 {
+        font-size: 1.6rem; /* Уменьшаем заголовок */
+    }
+
+    .plan.highlight p {
+        font-size: 0.8rem; /* Уменьшаем текст */
+    }
+}
+
     </style>
 </head>
 <body>
@@ -164,10 +247,10 @@
             <div class="price">★15</div>
             <p>3 Avatars</p>
             <button onclick="window.open('https://t.me/maxkranz')">Choose Basic</button>
-
         </div>
 
-        <div class="plan">
+        <div class="plan highlight">
+            <span class="badge">Best Value!</span>
             <h3>Standard</h3>
             <p>Great for regular users.</p>
             <div class="price">★25</div>
