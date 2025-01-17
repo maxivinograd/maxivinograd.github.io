@@ -129,6 +129,52 @@
         footer a:hover {
             text-decoration: underline;
         }
+       .selling-section {
+        color: #f0f0f0; /* Более светлый текст для контраста */
+        padding: 50px 20px; /* Просторный отступ для приятного восприятия */
+        text-align: center; /* Центровка текста */
+        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7); /* Глубина секции через тени */
+        border-radius: 15px; /* Скругленные углы */
+        margin: 30px auto; /* Отступы сверху и снизу */
+        max-width: 1200px; /* Ограничение ширины секции */
+    }
+
+    .selling-section h2 {
+        font-size: 2.5rem; 
+        margin-bottom: 20px; 
+        color: gold;
+    }
+
+    .selling-section ul {
+        list-style: none; 
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .selling-section ul li {
+        font-size: 1.2rem; /* Размер текста списка */
+        margin: 10px 0; /* Отступ между пунктами */
+        line-height: 1.6; /* Межстрочный интервал */
+        color: #fff; /* Белый цвет для текста */
+    }
+
+    .selling-section ul li::before {
+        content: "✔️"; /* Добавляем галочку перед пунктами */
+        margin-right: 10px; /* Отступ от текста */
+        color: limegreen; /* Зеленая галочка для визуального акцента */
+    }
+
+    .selling-section a {
+        color: deepskyblue; /* Цвет ссылки */
+        text-decoration: none; /* Убираем подчеркивание */
+        font-weight: bold; /* Выделяем жирным */
+        transition: color 0.3s; /* Плавный переход цвета */
+    }
+
+    .selling-section a:hover {
+        color: #0095d9; /* Меняем цвет при наведении */
+        text-decoration: underline; /* Подчеркивание при наведении */
+    }
     </style>
 </head>
 <body>
@@ -151,7 +197,23 @@
         <p>Order avatars here to have stylish profile.
         </p>
     </section>
-
+<section class=" selling-section">
+    <h2>Why Choose Max Kranz Avatar?</h2>
+    <p>
+        There are a lot of features:
+    </p>
+    <p>
+      ✨ <b>Why Choose Us?</b> ✨
+    </p>
+    <ul style="list-style: none; padding: 0; margin: 20px 0; font-size: 1.2rem; line-height: 1.8;">
+      <li><b>Unique Designs:</b> We craft avatars that stand out in a crowd.</li>
+      <li><b>Professional Touch:</b> Perfect for social media, business profiles, or personal branding.</li>
+    </ul>
+    <p>
+        💡 <b></b>Ready to elevate your profile?</b> Buy your avatar for a bit of Telegram stars! <br>
+        Click <a href="https://avatar.maxkranz.me/pricing/" style="color: deepskyblue; text-decoration: none;">here</a> to order now and let your avatar shine!
+    </p>
+</section>
    
 
 
